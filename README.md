@@ -18,12 +18,12 @@ I have exclusively been developing for iOS and Android on OSX as it is required 
 
 1. Ensure you are using the same branches as other members who can build. This includes the app you are trying to build and it's dependencies.
 1. Disable Instant Run
-Android Studio -> Preferences -> Build, Execution, Deployment -> Instant Run -> Uncheck the "Enable instant run..." checkbox at the top. The idea was that instant run would improve build times, which it does, it causes too much inconsitent behaviour to save any time at all.
+Android Studio -> Preferences -> Build, Execution, Deployment -> Instant Run -> Uncheck the "Enable instant run..." checkbox at the top. The idea was that instant run would improve build times, which it does, however it causes too much inconsitent behaviour to save any time at all.
 1. Disable "Offline Work" (you will sometimes get a warning about this one)
 Android Studio -> Preferences -> Build, Execution, Deployment -> Global Gradle Settings -> Offline Work (uncheck this). 
 	* Disabling Offline work can be a tremendous help towards improving build times, but I reccommend disabling it if things aren't building for now. You can enable offline work once you get things building again.
 1. Issue "./gradlew clean" command
-1. Delete .idea and .gradle folders for your project. These are hidden folders, and you will need to show hidden folders to see these if they exist.
+1. Close Android Studio, delete your project's .idea and .gradle folders. These are hidden folders, and you will need to show hidden folders to see these if they exist. You may need to reveal hidden files if you're on OSX https://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/. If your on Windows, you can google this. 
 1. Delete your system's gradle cache. Delete the contents of "$HOME/.gradle/caches" as mentioned here https://stackoverflow.com/questions/23025433/how-to-clear-gradle-cache. Note : this seems to be required more often when switching branches with different gradle versions.
 1. Invalidate and restart android studio (File -> Invalidate Caches / Restart)
 1. Ensure Android Studio is up to date (do NOT use beta channels). While you are free to experiment with the beta channel of Android Studio, here be dragons.
@@ -32,7 +32,6 @@ Android Studio -> Preferences -> Build, Execution, Deployment -> Global Gradle S
 1. Uninstall the exiting app
 	* Either by the device/simulator's ui
 	* Or by issuing "adb uninstall com.yourcompany.app" where the last part is your app package as defined 
-1. You may need to reveal hidden files if you're on OSX https://ianlunn.co.uk/articles/quickly-showhide-hidden-files-mac-os-x-mavericks/. If your on Windows, you can google this. 
 1. Ensure youre gradle tools are using the Java Devleopment Kit (JDK), and not the Java Runtime Environment (JRE). When you issue command "./gradlew --version", you should see something like
 	```
 	Gradle 4.4
